@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Wining and Dining</title>
 </head>
+
 <body>
-    <h1>Wining and Dining</h1>
+    <!-- <header>
+    <h1>Wining and Dining</h1> </header> -->
+
+    <header class="header">
+
+        <a href="#" class="logo">Wining and Dining</a>
+
+        <!-- Nav bar set up -->
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#food">Food</a>
+            <a href="#drinks">Drinks</a>
+            <a href="#about">About</a>
+        </nav>
+
+    </header>
+
     <div id="inputContainer">
         <input id="searchBox" type="text">
         <button id="searchButton">Search</button>
@@ -17,8 +39,9 @@
     </div>
 
     <!-- Add a foodResultsContainer -->
-    
+
     <script src="./assets/logic.js"></script>
-    
+
 </body>
+
 </html>
