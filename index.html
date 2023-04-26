@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Wining and Dining</title>
 </head>
 
@@ -19,22 +21,30 @@
 
         <!-- Nav bar set up -->
 
-        <i class='bx bx-menu' id="menu-icon"></i>
+        <!-- <i class='bx bx-menu' id="menu-icon"></i> -->
 
         <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#food">Food</a>
-            <a href="#drinks">Drinks</a>
-            <a href="#about">About</a>
+            <a href="#home" class="active"><i class='bx bxs-home'></i> Home</a>
+            <a href="#food"><i class='bx bxs-bowl-hot'></i> Food</a>
+            <a href="#drinks"><i class='bx bxs-drink'></i> Drinks</a>
+            <a href="#about"><i class='bx bxs-book-reader'></i> About</a>
         </nav>
-
     </header>
+        <!-- Home section -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <div style="background-image: url(https://cf.ltkcdn.net/cocktails/images/orig/304316-1600x1066-cocktail-food-pairing-chart.jpg); height: 790px; width: 1600px;">Please Drink Responsibly!</div>
+            
 
+
+        </div>
+   </section>
+    
     <div id="inputContainer">
         <input id="searchBox" type="text">
-        <button id="searchButton">Search</button>
+        <button id="searchButton">Search...</button>
     </div>
-    <div id="drinkResultContainer">
+    <div id="drinkResultContainer"> 
 
     </div>
 

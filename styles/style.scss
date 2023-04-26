@@ -2,6 +2,7 @@ $primaryDarkColor: #132A13;
 $primaryLightColor: #31572C;
 $primaryMainColor: #90A955;
 $textColor: #ECF39E;
+$showBackground: background-color: rgba(0, 0, 0, 0);
 
 * {
     background-color: $primaryLightColor;
@@ -12,26 +13,23 @@ $textColor: #ECF39E;
     border: none;
     outline: none;
     scroll-behavior: smooth;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .header {
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- padding: 2rem 9%;
- background: $primaryDarkColor;
- display: flex;
- justify-content: space-between;
- align-items: center;
- z-index: 100;
-
-
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: $primaryDarkColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
 }
 
 .logo {
-    background-color: rgba(0, 0, 0, 0) ;
+    background-color: $showBackground;
     font-size: 3rem;
     color: $primaryMainColor;
     font-weight: 600;
@@ -47,7 +45,7 @@ $textColor: #ECF39E;
     cursor: default;
 
     a {
-        background-color: rgba(0, 0, 0, 0) ;
+        background-color: $showBackground;
         font-size: 1.7rem;
         text-decoration: none;
         border: none;
@@ -56,23 +54,19 @@ $textColor: #ECF39E;
         transition: 2s;
     }
 
-    #home {
-        text-decoration: none;
+    a i {
+        background-color: $showBackground;
     }
 
     :hover,
     .active {
         color: $textColor;
     }
-
-    #menu-icon {
-        font-size: 3.6rem;
-        color: $textColor;
-        display: none;
-
-    }
-
-
-
-
 }
+
+#searchButton {
+display: flex;
+color: aqua;
+}
+
+

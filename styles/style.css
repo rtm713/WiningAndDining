@@ -11,7 +11,6 @@
 }
 
 .header {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -48,15 +47,16 @@
   margin-left: 3rem;
   transition: 2s;
 }
-.navbar #home {
-  text-decoration: none;
+.navbar a i {
+  background-color: rgba(0, 0, 0, 0);
 }
 .navbar :hover,
 .navbar .active {
   color: #ECF39E;
 }
-.navbar #menu-icon {
-  font-size: 3.6rem;
-  color: #ECF39E;
-  display: none;
+
+.home-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=style.css.map */
