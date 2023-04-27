@@ -1,0 +1,14 @@
+body {
+  background-color: #31572C;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body .navbar {
+  background-color: #132A13;
+}/*# sourceMappingURL=main.css.map */
