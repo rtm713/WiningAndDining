@@ -16,6 +16,13 @@ $showBackground: background-color: rgba(0, 0, 0, 0);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body {
+width: 100%;
+height: auto;
+overflow: hidden;
+
+}
+
 .header {
     top: 0;
     left: 0;
@@ -64,9 +71,26 @@ $showBackground: background-color: rgba(0, 0, 0, 0);
     }
 }
 
-#searchButton {
-display: flex;
-color: aqua;
+.content-wrapper {
+width: 80%;
+margin: 4% 10% 5% 10%;
+
+img {
+width: 100%;
+
+}
+}
+
+.text-wrapper {
+width: 100%;
+position: relative;
+margin-top: -40%;
+
+    h1 {
+text-align: center;
+color: #fff;
+
+    }
 }
 
 
