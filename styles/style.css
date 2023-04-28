@@ -10,13 +10,18 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
+
 .hero-image {
-  background-color: ;
+  height: 40%;
+  object-fit: scale-down;
 }
 
 .container {
+  width: 100%;
   position: relative;
 }
+
 .text-block {
   position: absolute;
   bottom: 20px;
