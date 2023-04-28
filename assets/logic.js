@@ -71,12 +71,20 @@ function renderDrinkResults(DrinkData) {
     newDrinkName.textContent = drinkName;
 
     var newDrinkIngredientList = document.createElement('ul');
-    for (i=0; i<=drinkIngredients.length; i++) {
-        if (drinkIngredients[i] != null) {
+
+    for (var i=1;i<=15;i++) {
+        var ingredientPropertyName = "strIngredient";
+        var measurePropertyName = "strMeasure";
+        ingredientPropertyName += i;
+        measurePropertyName += i;
+
+        var ingredient = DrinkData[ingredientPropertyName];
+        if (ingredient) {
             var newDrinkIngredient = document.createElement('li');
-            newDrinkIngredient.textContent = drinkIngredients[i];
+            newDrinkIngredient.textContent = DrinkData[measurePropertyName] + " " + ingredient;
             newDrinkIngredientList.append(newDrinkIngredient); 
         }
+
     }
 
     var newDrinkInstructions = document.createElement('p');
