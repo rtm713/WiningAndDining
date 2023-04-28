@@ -1,6 +1,7 @@
 var searchBox = document.querySelector('#searchBox');
 var searchButton = document.querySelector('#searchButton');
 var drinkResults = document.querySelector('#drinkResultContainer');
+var drinkButton =document.querySelector('#drinkButton');
 
 var COCKTAIL_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
@@ -10,10 +11,14 @@ var testing = "";
 
 searchButton.addEventListener('click', function() {
     testing = searchBox.value;
-    fetchDrinkResults();
     fetchFoodResults();
 //add a fetchFoodResults function
 })
+
+drinkButton.addEventListener('click', function() {
+    fetchDrinkResults();
+})
+
 
 // Create a fetchFoodResults function
    //  include renderFoodResults function
