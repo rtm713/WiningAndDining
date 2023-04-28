@@ -14,7 +14,6 @@ body {
 
 .hero-image {
   height: 40%;
-  object-fit: scale-down;
 }
 
 .container {
