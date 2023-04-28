@@ -10,11 +10,19 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-
-
 .hero-image {
   height: 40%;
   object-fit: scale-down;
+}
+
+.hero-container .text-block {
+  
+}
+
+.text-block h4 {
+  display: block;
+  text-align: left;
+
 }
 
 .container {
