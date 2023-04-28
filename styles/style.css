@@ -1,4 +1,4 @@
-* {
+body {
   background-color: #31572C;
   margin: 0;
   padding: 0;
@@ -10,10 +10,12 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
+
 .header {
   top: 0;
   left: 0;
-  width: 100%;
+  width: 90%;
   padding: 2rem 9%;
   background: #132A13;
   display: flex;
