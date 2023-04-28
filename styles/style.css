@@ -1,4 +1,4 @@
-* {
+body {
   background-color: #31572C;
   margin: 0;
   padding: 0;
@@ -10,10 +10,33 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
+
+.hero-image {
+  height: 40%;
+  object-fit: scale-down;
+}
+
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
 .header {
   top: 0;
   left: 0;
-  width: 100%;
+  width: 90%;
   padding: 2rem 9%;
   background: #132A13;
   display: flex;
@@ -55,8 +78,9 @@
   color: #ECF39E;
 }
 
+
 .home-content {
   display: flex;
   justify-content: center;
   align-items: center;
-}/*# sourceMappingURL=style.css.map */
+}
