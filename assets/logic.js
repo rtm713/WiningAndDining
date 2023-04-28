@@ -2,7 +2,7 @@ var searchBox = document.querySelector('#searchBox');
 var searchButton = document.querySelector('#searchButton');
 var drinkResults = document.querySelector('#drinkResultContainer');
 var drinkButton =document.querySelector('#drinkButton');
-
+var iD = ""
 var COCKTAIL_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
 var FOOD_API_URL = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients=';
@@ -69,6 +69,7 @@ function renderDrinkResults(DrinkData) {
     drinkResults.append(newDrinkInstructions);    
 }
 
+//this function grabs the recipe Id, name and image
 function fetchFoodResults() {
     fetch (FOOD_API_URL+testing+FOOD_API_KEY)
     .then(function (res) {
@@ -83,19 +84,21 @@ function fetchFoodResults() {
         console.log(iD);
         console.log(recipeName);
         console.log(recipeImage);
-        results();
-        
     })
     .catch(function (error) {
         console.error(error);
     });
 }
+fetch ('https://api.spoonacular.com/recipes/324694/analyzedInstructions?'+FOOD_API_KEY)
+.then(function (res) {
+    if (!res.ok) throw new Error('oops got an error');
+    return res.json();
+})
+.then (function recipes(data){
+    console.log("data :>>", data)
+})
 searchButton.addEventListener('click', function() {
     testing = searchBox.value;
     fetchFoodResults();
 //add a fetchFoodResults function
 })
-
-function results () {
-    console.log("working");
-}
