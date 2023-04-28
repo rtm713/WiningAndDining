@@ -1,6 +1,7 @@
 var searchBox = document.querySelector('#searchBox');
 var searchButton = document.querySelector('#searchButton');
 var drinkResults = document.querySelector('#drinkResultContainer');
+var drinkButton =document.querySelector('#drinkButton');
 
 var COCKTAIL_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
@@ -10,10 +11,14 @@ var testing = "";
 
 searchButton.addEventListener('click', function() {
     testing = searchBox.value;
-    fetchDrinkResults();
     fetchFoodResults();
 //add a fetchFoodResults function
 })
+
+drinkButton.addEventListener('click', function() {
+    fetchDrinkResults();
+})
+
 
 // Create a fetchFoodResults function
    //  include renderFoodResults function
@@ -58,24 +63,6 @@ function renderDrinkResults(DrinkData) {
     var drinkIngredients = [DrinkData.strMeasure1+" "+DrinkData.strIngredient1,DrinkData.strMeasure2+" "+DrinkData.strIngredient2,DrinkData.strMeasure3+" "+DrinkData.strIngredient3,
     DrinkData.strMeasure4+" "+DrinkData.strIngredient4, DrinkData.strMeasure5+" "+DrinkData.strIngredient5, DrinkData.strMeasure6+" "+DrinkData.strIngredient6,];
 
-    // for (i=0; i<=drinkIngredients.length; i++) {
-    //     if
-
-    //     //make into a list????
-    // var newDrinkIngredients = document.createElement('p');
-    // newDrinkIngredients.textContent = drinkIngredients;
-
-    // }
-
-
-
-    //NEED TO LOOP THROUGH INGREDIENTS?? MORE THAN THREE????
-    // need to add amounts strMeasure1 + ingredient???
-    // BUG: returns 0 when there is no item (only has 2 ingred.)
-
-
-
-
     var drinkImg = DrinkData.strDrinkThumb;
     var drinkInstructions = DrinkData.strInstructions;
 
@@ -86,12 +73,21 @@ function renderDrinkResults(DrinkData) {
     var newDrinkName = document.createElement('h4');
     newDrinkName.textContent = drinkName;
 
+    var newDrinkIngredientList = document.createElement('ul');
+    for (i=0; i<=drinkIngredients.length; i++) {
+        if (drinkIngredients[i] != null) {
+            var newDrinkIngredient = document.createElement('li');
+            newDrinkIngredient.textContent = drinkIngredients[i];
+            newDrinkIngredientList.append(newDrinkIngredient); 
+        }
+    }
+
     var newDrinkInstructions = document.createElement('p');
     newDrinkInstructions.textContent = drinkInstructions;
 
     drinkResults.append(newIMG);
     drinkResults.append(newDrinkName);
-    drinkResults.append(newDrinkIngredients);
+    drinkResults.append(newDrinkIngredientList);
     drinkResults.append(newDrinkInstructions);
 
 
