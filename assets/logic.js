@@ -7,7 +7,7 @@ var COCKTAIL_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
 var FOOD_API_URL = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients=';
 var FOOD_API_KEY = '&number=3&apiKey=57408b6aca4f4f4cad3cd0640c27fc9a';
-var FOOD_API_SECOND_KEY = '&number=3&apiKey=0675a603136544f2bf5e7b291bfbca03';
+var FOOD_API_SECOND_KEY = '&number=1&apiKey=0675a603136544f2bf5e7b291bfbca03';
 var testing = searchBox.value;
 
 
@@ -70,7 +70,7 @@ function renderDrinkResults(DrinkData) {
     drinkResults.append(newDrinkInstructions);    
 }
 
-//this function grabs the recipe Id, name and image
+//on click - fetches the data for search by ingredient and recipe information bases
 function fetchFoodResults() {
     fetch (FOOD_API_URL+testing+FOOD_API_SECOND_KEY)
     .then(function (res) {
@@ -78,33 +78,55 @@ function fetchFoodResults() {
         return res.json();
     })
     .then(function (data) {
-        console.log('data :>>', data);
+        console.log('SearchData :>>', data);
         renderFoodResults(data[0]);
         
     })
     .catch(function (error) {
         console.error(error);
     });
-fetch ('https://api.spoonacular.com/recipes/324694/analyzedInstructions?'+FOOD_API_SECOND_KEY)
-.then(function (res) {
-    if (!res.ok) throw new Error('oops got an error');
-    return res.json();
-})
-.then (function recipes(data){
-    console.log("data :>>", data)
-})
 }
-
+//seperation of renderFoodResults
 function renderFoodResults (foodData) {
-    var iD = foodData.id;
+        var iD = foodData.id;
         var recipeName = foodData.title
         var recipeImage = foodData.image
         console.log(iD);
         console.log(recipeName);
         console.log(recipeImage);
+        fetchRecipeDetails(iD);
+
 }
+   //here is the second fetch
+function fetchRecipeDetails (id){
+    
+       fetch ('https://api.spoonacular.com/recipes/'+id+'/analyzedInstructions?'+FOOD_API_SECOND_KEY)
+       .then(function (res) {
+           if (!res.ok) throw new Error('oops got an error');
+           return res.json();
+       })
+        .then (function (data){
+            console.log(id);
+           console.log("DetailData :>>", data);
+           renderRecipeDetails(data[0]);
+
+       })
+       .catch(function (error) {
+        console.error(error);
+    });
+}
+
+//seperation of renderRecipeDetails
+function renderRecipeDetails (detailData) {
+    console.log("renderingDetails")
+    var steps = [];
+    for (var i=0; i<detailData.length; i++) {
+        steps.push(detailData[i].steps)
+    }
+    console.log(steps.flat());
+}
+
 searchButton.addEventListener('click', function() {
     testing = searchBox.value;
-    fetchFoodResults();
-//add a fetchFoodResults function
+    fetchFoodResults(); //initates food functions
 })
