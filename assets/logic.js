@@ -20,10 +20,6 @@ drinkButton.addEventListener('click', function() {
 })
 
 
-// Create a fetchFoodResults function
-   //  include renderFoodResults function
-
-
 function fetchDrinkResults() {
     fetch (COCKTAIL_API_URL)
     .then(function (res) {
@@ -56,6 +52,7 @@ function fetchFoodResults() {
 
 
 // Create renderFoodResults Function
+
 
 function renderDrinkResults(DrinkData) {
     drinkResults.textContent="";
