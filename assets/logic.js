@@ -6,8 +6,8 @@ var iD = ""
 var COCKTAIL_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
 var FOOD_API_URL = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients=';
-var FOOD_API_KEY = '&number=3&apiKey=57408b6aca4f4f4cad3cd0640c27fc9a';
-var FOOD_API_SECOND_KEY = '&number=1&apiKey=0675a603136544f2bf5e7b291bfbca03';
+var FOOD_API_KEY = '&number=1&apiKey=57408b6aca4f4f4cad3cd0640c27fc9a';
+var FOOD_API_SECOND_KEY = '&number=2&apiKey=0675a603136544f2bf5e7b291bfbca03';
 var testing = searchBox.value;
 
 
@@ -32,8 +32,6 @@ function fetchDrinkResults() {
 }
 
 
-
-// Create renderFoodResults Function
 
 
 function renderDrinkResults(DrinkData) {
@@ -78,8 +76,9 @@ function fetchFoodResults() {
         return res.json();
     })
     .then(function (data) {
+        for (i=0; i<3; i++) {
         console.log('SearchData :>>', data);
-        renderFoodResults(data[0]);
+        renderFoodResults(data[i])}
         
     })
     .catch(function (error) {
@@ -94,7 +93,8 @@ function renderFoodResults (foodData) {
         console.log(iD);
         console.log(recipeName);
         console.log(recipeImage);
-        fetchRecipeDetails(iD);//initiates connection from search to recipe itself
+        for (i=0; i<3; i++){
+        fetchRecipeDetails(iD);//initiates connection from search to recipe itself}
 
 }
 
