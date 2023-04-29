@@ -86,7 +86,7 @@ function fetchFoodResults() {
         console.error(error);
     });
 }
-//seperation of renderFoodResults
+//seperation of renderFoodResults, extraction of recipe id, name and image
 function renderFoodResults (foodData) {
         var iD = foodData.id;
         var recipeName = foodData.title
@@ -94,10 +94,11 @@ function renderFoodResults (foodData) {
         console.log(iD);
         console.log(recipeName);
         console.log(recipeImage);
-        fetchRecipeDetails(iD);
+        fetchRecipeDetails(iD);//initiates connection from search to recipe itself
 
 }
-   //here is the second fetch
+
+//second fetch to grab the recipe details using extracted id 
 function fetchRecipeDetails (id){
     
        fetch ('https://api.spoonacular.com/recipes/'+id+'/analyzedInstructions?'+FOOD_API_SECOND_KEY)
@@ -117,13 +118,11 @@ function fetchRecipeDetails (id){
 }
 
 //seperation of renderRecipeDetails
+//current issue is that when I try to return the steps, it is showing up as an empty array
 function renderRecipeDetails (detailData) {
     console.log("renderingDetails")
-    var steps = [];
-    for (var i=0; i<detailData.length; i++) {
-        steps.push(detailData[i].steps)
-    }
-    console.log(steps.flat());
+    var instruction = detailData.steps
+    console.log(instruction)
 }
 
 searchButton.addEventListener('click', function() {
