@@ -6,8 +6,8 @@ var iD = ""
 var COCKTAIL_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
 var FOOD_API_URL = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients=';
-var FOOD_API_KEY = '&number=1&apiKey=57408b6aca4f4f4cad3cd0640c27fc9a';
-var FOOD_API_SECOND_KEY = '&number=2&apiKey=0675a603136544f2bf5e7b291bfbca03';
+var FOOD_API_KEY = '&number=3&apiKey=57408b6aca4f4f4cad3cd0640c27fc9a';
+var FOOD_API_SECOND_KEY = '&number=3&apiKey=0675a603136544f2bf5e7b291bfbca03';
 var testing = searchBox.value;
 
 
@@ -70,14 +70,14 @@ function renderDrinkResults(DrinkData) {
 
 //on click - fetches the data for search by ingredient and recipe information bases
 function fetchFoodResults() {
-    fetch (FOOD_API_URL+testing+FOOD_API_SECOND_KEY)
+    fetch (FOOD_API_URL+testing+FOOD_API_KEY)
     .then(function (res) {
         if (!res.ok) throw new Error('oops got an error');
         return res.json();
     })
     .then(function (data) {
         for (i=0; i<3; i++) {
-        console.log('SearchData :>>', data);
+        // console.log('SearchData :>>', data);
         renderFoodResults(data[i])}
         
     })
@@ -87,29 +87,31 @@ function fetchFoodResults() {
 }
 //seperation of renderFoodResults, extraction of recipe id, name and image
 function renderFoodResults (foodData) {
-        var iD = foodData.id;
-        var recipeName = foodData.title
-        var recipeImage = foodData.image
-        console.log(iD);
-        console.log(recipeName);
-        console.log(recipeImage);
-        for (i=0; i<3; i++){
-        fetchRecipeDetails(iD);//initiates connection from search to recipe itself}
+        
+    var iD = foodData.id;
+    var recipeName = foodData.title
+    var recipeImage = foodData.image
+    console.log("food results:")
+    console.log(iD);
+    console.log(recipeName);
+    console.log(recipeImage);
 
+     fetchRecipeDetails(iD);//initiates connection from search to recipe itself
 }
+ 
 
 //second fetch to grab the recipe details using extracted id 
 function fetchRecipeDetails (id){
     
-       fetch ('https://api.spoonacular.com/recipes/'+id+'/analyzedInstructions?'+FOOD_API_SECOND_KEY)
+       fetch ('https://api.spoonacular.com/recipes/'+id+'/analyzedInstructions?'+FOOD_API_KEY)
        .then(function (res) {
            if (!res.ok) throw new Error('oops got an error');
            return res.json();
        })
         .then (function (data){
             console.log(id);
-           console.log("DetailData :>>", data);
-           renderRecipeDetails(data[0]);
+        //    console.log("DetailData :>>", data);
+           renderRecipeDetails(data);
 
        })
        .catch(function (error) {
@@ -120,10 +122,12 @@ function fetchRecipeDetails (id){
 //seperation of renderRecipeDetails
 //current issue is that when I try to return the steps, it is showing up as an empty array
 function renderRecipeDetails (detailData) {
-    console.log("renderingDetails")
-    var instruction = detailData.steps
-    console.log(instruction)
-}
+    // console.log(detailData)
+    for(i=0; i<detailData.length; i++){
+    var instructions = detailData[i].steps;
+    console.log("recipe steps:")
+    console.log(instructions);
+    }
 }
 searchButton.addEventListener('click', function() {
     testing = searchBox.value;
