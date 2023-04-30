@@ -41,7 +41,6 @@ body {
 
 }
 
-
 .header {
   top: 0;
   left: 0;
@@ -92,4 +91,32 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.about {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 2rem;
+
+  
+}
+
+.about-img img {
+width: 35vw;
+
+}
+
+.about-img2 img {
+  width: 30vw;
+  height: 700px;
+}
+
+.about-content .heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+
+
 }
