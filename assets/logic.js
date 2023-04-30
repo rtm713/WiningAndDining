@@ -124,7 +124,7 @@ function renderRecipeDetails (detailData) {
     var instruction = detailData.steps
     console.log(instruction)
 }
-
+}
 searchButton.addEventListener('click', function() {
     testing = searchBox.value;
     fetchFoodResults(); //initates food functions
