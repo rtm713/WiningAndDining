@@ -125,8 +125,8 @@ function fetchRecipeDetails (id){
 function renderRecipeDetails (detailData) {
     // console.log(detailData)
     
-            for(i=0; i<detailData.steps.length; i++){
-              var instructions = detailData.steps[i].step;
+            for(i=0; i<detailData[0].steps.length; i++){
+              var instructions = detailData[0].steps[i].step;
               console.log(instructions);
             }
     }
