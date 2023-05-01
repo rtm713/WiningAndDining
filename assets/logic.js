@@ -70,7 +70,8 @@ function renderDrinkResults(DrinkData) {
 
 //on click - fetches the data for search by ingredient and recipe information bases
 function fetchFoodResults() {
-    fetch (FOOD_API_URL+testing+FOOD_API_SECOND_KEY)
+    testing = searchBox.value;
+    fetch (FOOD_API_URL+testing+FOOD_API_KEY)
     .then(function (res) {
         if (!res.ok) throw new Error('oops got an error');
         return res.json();
@@ -104,7 +105,7 @@ function renderFoodResults (foodData) {
 //second fetch to grab the recipe details using extracted id 
 function fetchRecipeDetails (id){
     
-       fetch ('https://api.spoonacular.com/recipes/'+id+'/analyzedInstructions?'+FOOD_API_SECOND_KEY)
+       fetch ('https://api.spoonacular.com/recipes/'+id+'/analyzedInstructions?'+FOOD_API_KEY)
        .then(function (res) {
            if (!res.ok) throw new Error('oops got an error');
            return res.json();
@@ -131,7 +132,7 @@ function renderRecipeDetails (detailData) {
             }
     }
 function fetchIngredientList(id){
-    fetch ('https://api.spoonacular.com/recipes/'+id+'/information?'+FOOD_API_SECOND_KEY)
+    fetch ('https://api.spoonacular.com/recipes/'+id+'/information?'+FOOD_API_KEY)
        .then(function (res) {
            if (!res.ok) throw new Error('oops got an error');
            return res.json();
@@ -149,13 +150,16 @@ function fetchIngredientList(id){
 } 
 
 function renderIngredientList (ingredientData) {
-    console.log("ingredients working")
-    // for(i=0; i<ingredientData.extendedIngredients.length; i++){
-    //     console.log(ingredientData.extendedIngredients[i].original);
+//    console.log("working")
+//    console.log(ingredientData.extendedIngredients.original)
+    for(i=0; i<ingredientData.extendedIngredients.length; i++){
+      var instructions = ingredientData.extendedIngredients[i].original;
+      console.log(instructions);
+    }
+
       } 
 //}
 //}
 searchButton.addEventListener('click', function() {
-    testing = searchBox.value;
     fetchFoodResults(); //initates food functions
 })
