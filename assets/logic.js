@@ -12,7 +12,6 @@ var testing = "";
 searchButton.addEventListener('click', function() {
     testing = searchBox.value;
     fetchFoodResults();
-//add a fetchFoodResults function
 })
 
 drinkButton.addEventListener('click', function() {
@@ -50,16 +49,11 @@ function fetchFoodResults() {
     });
 }
 
-
 // Create renderFoodResults Function
-
 
 function renderDrinkResults(DrinkData) {
     drinkResults.textContent="";
-    var drinkName = DrinkData.strDrink;
-    var drinkIngredients = [DrinkData.strMeasure1+" "+DrinkData.strIngredient1,DrinkData.strMeasure2+" "+DrinkData.strIngredient2,DrinkData.strMeasure3+" "+DrinkData.strIngredient3,
-    DrinkData.strMeasure4+" "+DrinkData.strIngredient4, DrinkData.strMeasure5+" "+DrinkData.strIngredient5, DrinkData.strMeasure6+" "+DrinkData.strIngredient6,];
-
+    var drinkName = DrinkData.strDrink;    
     var drinkImg = DrinkData.strDrinkThumb;
     var drinkInstructions = DrinkData.strInstructions;
 
