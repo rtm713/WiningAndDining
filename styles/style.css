@@ -98,7 +98,7 @@ left: 50%;
 
 .foodResultsContainer{
   display: flex;
-  /* justify-content: space-evenly; */
+  justify-content: space-evenly;
 }
 
 .card {
@@ -115,6 +115,10 @@ left: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.drinkResultContainer{
+ position: relative;
 }
 
 .about {
