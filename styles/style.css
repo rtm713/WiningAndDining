@@ -102,9 +102,28 @@ body {
   align-items: center;
 }
 
-@media all and (max-width: 200px) {
+@media screen and (min-width: 280px) and (max-width: 600px) {
   .navbar {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .hero-image {
+  object-fit: cover;
+  }
+
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    width: 350px;
+  } 
+
+  .foodResultsContainer {
+    display: flex;
+    flex-direction: column;
   }
 }
