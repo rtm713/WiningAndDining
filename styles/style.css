@@ -102,7 +102,11 @@ body {
   align-items: center;
 }
 
-@media screen and (min-width: 280px) and (max-width: 600px) {
+@media screen and (min-width: 240px) and (max-width: 600px) {
+  body {
+    overflow: hidden;
+  }
+ 
   .navbar {
     display: flex;
     flex-wrap: wrap;
