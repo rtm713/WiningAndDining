@@ -92,10 +92,6 @@ function renderFoodResults (foodData) {
     var iD = foodData.id;
     var recipeName = foodData.title
     var recipeImage = foodData.image
-    // console.log("food results:")
-    // console.log(iD);
-    // console.log(recipeName);
-    // console.log(recipeImage);
 
      fetchRecipeDetails(iD);//initiates connection from search to recipe itself
      fetchIngredientList(iD);
@@ -121,8 +117,7 @@ function fetchRecipeDetails (id){
     });
 }
 
-//seperation of renderRecipeDetails
-//current issue is that when I try to return the steps, it is showing up as an empty array
+
 function renderRecipeDetails (detailData) {
     // console.log(detailData)
     
@@ -150,16 +145,15 @@ function fetchIngredientList(id){
 } 
 
 function renderIngredientList (ingredientData) {
-//    console.log("working")
-//    console.log(ingredientData.extendedIngredients.original)
+
     for(i=0; i<ingredientData.extendedIngredients.length; i++){
       var instructions = ingredientData.extendedIngredients[i].original;
       console.log(instructions);
     }
 
       } 
-//}
-//}
+
 searchButton.addEventListener('click', function() {
+    testing = searchBox.value;
     fetchFoodResults(); //initates food functions
 })
