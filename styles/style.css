@@ -10,20 +10,12 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
 .hero-image {
   height: 450px;
   object-fit: cover;
 }
 
-.hero-container .text-block {
-  
-}
-
-.text-block h4 {
-  display: block;
-  text-align: left;
-
-}
 
 .container {
   width: 100%;
@@ -87,6 +79,22 @@ body {
 }
 
 
+.foodResultsContainer{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
 .home-content {
   display: flex;
   justify-content: center;
@@ -109,9 +117,8 @@ border-radius: 25px;
 }
 
 .about-img2 img {
-  po
   border-radius: 25px;
-    width: 30vw;
+  width: 30vw;
   height: 550px;
 }
 
