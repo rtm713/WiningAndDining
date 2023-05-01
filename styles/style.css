@@ -96,34 +96,9 @@ body {
   align-items: center;
 }
 
-.about {
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 2rem;
+@media all and (max-width: 200px) {
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
-
-.about-img img {
-width: 35vw;
-border-radius: 25px;
-}
-
-.about-img2 img {
-  border-radius: 25px;
-  width: 30vw;
-  height: 550px;
-}
-
-.about-content {
-justify-content:center;
-flex-wrap: wrap;
-
-}
-
-.about-content .heading {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  color: red;
-}
-
