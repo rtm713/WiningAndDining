@@ -104,19 +104,26 @@ gap: 2rem;
 
 .about-img img {
 width: 35vw;
+border-radius: 25px;
 
 }
 
 .about-img2 img {
-  width: 30vw;
-  height: 700px;
+  po
+  border-radius: 25px;
+    width: 30vw;
+  height: 550px;
+}
+
+.about-content {
+justify-content:center;
+flex-wrap: wrap;
+
 }
 
 .about-content .heading {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   color: red;
-
-
 }
