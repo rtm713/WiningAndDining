@@ -10,12 +10,10 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-
 .hero-image {
   height: 450px;
   object-fit: cover;
 }
-
 
 .container {
   width: 100%;
@@ -30,7 +28,6 @@ body {
   color: white;
   padding-left: 20px;
   padding-right: 20px;
-
 }
 
 .header {
@@ -78,7 +75,6 @@ body {
   color: #ECF39E;
 }
 
-
 .foodResultsContainer{
   display: flex;
   justify-content: space-evenly;
@@ -94,7 +90,6 @@ body {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-
 .home-content {
   display: flex;
   justify-content: center;
@@ -106,14 +101,11 @@ display: flex;
 justify-content: center;
 align-items: center;
 gap: 2rem;
-
-  
 }
 
 .about-img img {
 width: 35vw;
 border-radius: 25px;
-
 }
 
 .about-img2 img {
@@ -134,3 +126,4 @@ flex-wrap: wrap;
   align-items: center;
   color: red;
 }
+
