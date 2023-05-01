@@ -101,3 +101,10 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+@media all and (max-width: 200px) {
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
