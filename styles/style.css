@@ -33,9 +33,6 @@ left: 50%;
 
 }
 
-
-
-
 .container {
   width: 100%;
   position: relative;
@@ -118,26 +115,54 @@ left: 50%;
 }
 
 .drinkResultContainer{
- position: relative;
+ position: absolute;
 }
 
-.about {
-  display: flex;
-flex-wrap: wrap;
-justify-content: center;
+.contact-container {
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background: transparent;
+  border: .2rem solid var(--main-color);
+  border-radius: 50%;
+  font-size: 2rem;
+  color: var(--main-color);
+  margin: 3rem 1.5rem 3rem 0;
+  transition: .5s ease;
+  }
 
+.social-media a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+ }
 
-}
+ .social-media a :hover {
+background-color: blue;
+color: orange;
+box-shadow: 
 
-.about-img img {
-border-radius: 25px;
+ }
 
-}
+ .btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background: black;
+  border-radius: 4rem;
+  box-shadow: 0 0 1rem green;
+  font-size: 1.6rem;
+  color: blue;
+  letter-spacing: .1rem;
+  font-weight: 600;
+  transition: .5s ease;
+ }
 
-.about-img2 img {
-border-radius: 25px;
-
-}
+ .btn :hover {
+  box-shadow: none;
+ }
 
 @media all and (max-width: 200px) {
   .navbar {
