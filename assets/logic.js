@@ -3,7 +3,7 @@ var searchButton = document.querySelector('#searchButton');
 var drinkResults = document.querySelector('#drinkResultContainer');
 var drinkButton = document.querySelector('#drinkButton');
 var iD = ""
-var recipeTitle = document.querySelector("#mealName")
+var recipeTitle = document.querySelector("#mealName");
 var COCKTAIL_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
 var FOOD_API_URL = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients=';
@@ -46,7 +46,7 @@ function renderDrinkResults(DrinkData) {
 
 
     var newIMG = document.createElement('img');
-]
+
     newIMG.setAttribute('src',drinkImg);
 
 
@@ -199,4 +199,4 @@ function renderIngredientList (ingredientData) {
 searchButton.addEventListener('click', function() {
     var testing = searchBox.value;
     fetchFoodResults(); //initates food functions
-})
+});

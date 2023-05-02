@@ -33,9 +33,6 @@ left: 50%;
 
 }
 
-
-
-
 .container {
   width: 100%;
   position: relative;
@@ -118,26 +115,38 @@ left: 50%;
 }
 
 .drinkResultContainer{
- position: relative;
+ position: absolute;
 }
 
-.about {
-  display: flex;
-flex-wrap: wrap;
-justify-content: center;
+.social-media a {
+  flex-direction: row;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 8rem;
+  height: 8rem;
+  background: transparent;
+  border: .2rem solid black;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: black;
+  margin: 3rem 1.5rem 3rem 0;
+  text-decoration: none;
+  
 
 
 }
-
-.about-img img {
-border-radius: 25px;
-
-}
-
-.about-img2 img {
-border-radius: 25px;
-
-}
+.btn {
+  display: flex
+  padding: 2rem;
+  background: blue;
+  border-radius: 4rem;
+  box-shadow: 0 0 1rem orange;
+  font-size: 1rem;
+  color: white;
+  letter-spacing: .2rem;
+  font-weight: 500;
+  }
 
 @media all and (max-width: 200px) {
   .navbar {
