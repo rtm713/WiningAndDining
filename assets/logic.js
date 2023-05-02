@@ -35,27 +35,36 @@ function fetchDrinkResults() {
 
 
 function renderDrinkResults(DrinkData) {
-    drinkResults.textContent = "";
-    var drinkName = DrinkData.strDrink;
-    var drinkIngredients = [DrinkData.strMeasure1 + " " + DrinkData.strIngredient1, DrinkData.strMeasure2 + " " + DrinkData.strIngredient2, DrinkData.strMeasure3 + " " + DrinkData.strIngredient3,
-    DrinkData.strMeasure4 + " " + DrinkData.strIngredient4, DrinkData.strMeasure5 + " " + DrinkData.strIngredient5, DrinkData.strMeasure6 + " " + DrinkData.strIngredient6,];
+
+    drinkResults.textContent="";
+    var drinkName = DrinkData.strDrink;    
 
     var drinkImg = DrinkData.strDrinkThumb;
     var drinkInstructions = DrinkData.strInstructions;
 
 
     var newIMG = document.createElement('img');
-    newIMG.setAttribute('src', drinkImg);
+]
+    newIMG.setAttribute('src',drinkImg);
+
 
     var newDrinkName = document.createElement('h4');
     newDrinkName.textContent = drinkName;
 
     var newDrinkIngredientList = document.createElement('ul');
-    for (i = 0; i <= drinkIngredients.length; i++) {
-        if (drinkIngredients[i] != null) {
+
+    for (var i=1;i<=15;i++) {
+        var ingredientPropertyName = "strIngredient";
+        var measurePropertyName = "strMeasure";
+        ingredientPropertyName += i;
+        measurePropertyName += i;
+
+        var ingredient = DrinkData[ingredientPropertyName];
+        if (ingredient) {
             var newDrinkIngredient = document.createElement('li');
-            newDrinkIngredient.textContent = drinkIngredients[i];
-            newDrinkIngredientList.append(newDrinkIngredient);
+            newDrinkIngredient.textContent = DrinkData[measurePropertyName] + " " + ingredient;
+            newDrinkIngredientList.append(newDrinkIngredient); 
+
         }
     }
 
