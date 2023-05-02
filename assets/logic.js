@@ -3,12 +3,14 @@ var searchButton = document.querySelector('#searchButton');
 var drinkResults = document.querySelector('#drinkResultContainer');
 var drinkButton =document.querySelector('#drinkButton');
 var iD = ""
+var recipeTitle = document.querySelector("#mealName")
 var COCKTAIL_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
 var FOOD_API_URL = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients=';
 var FOOD_API_KEY = '&number=3&apiKey=57408b6aca4f4f4cad3cd0640c27fc9a';
 var FOOD_API_SECOND_KEY = '&number=3&apiKey=0675a603136544f2bf5e7b291bfbca03';
-var testing = searchBox.value;
+var FOOD_API_THIRD_KEY = '43725fe05e144d5fa73ea28e7883f8d4';
+
 
 
 drinkButton.addEventListener('click', function() {
@@ -17,7 +19,7 @@ drinkButton.addEventListener('click', function() {
 
 
 function fetchDrinkResults() {
-    fetch (COCKTAIL_API_URL)
+    fetch (COCKTAIL_API_SECOND_URL)
     .then(function (res) {
         if (!res.ok) throw new Error('oops got an error');
         return res.json();
@@ -71,7 +73,7 @@ function renderDrinkResults(DrinkData) {
 //on click - fetches the data for search by ingredient and recipe information bases
 function fetchFoodResults() {
     testing = searchBox.value;
-    fetch (FOOD_API_URL+testing+FOOD_API_KEY)
+    fetch (FOOD_API_URL+testing+FOOD_API_SECOND_KEY)
     .then(function (res) {
         if (!res.ok) throw new Error('oops got an error');
         return res.json();
@@ -92,16 +94,20 @@ function renderFoodResults (foodData) {
     var iD = foodData.id;
     var recipeName = foodData.title
     var recipeImage = foodData.image
+    // recipeTitle.textContent = recipeName
 
      fetchRecipeDetails(iD);//initiates connection from search to recipe itself
      fetchIngredientList(iD);
+     for(i=0; i<foodData.length; i++){
+        recipeTitle.textContent = recipeName
+     }
 }
  
 
 //second fetch to grab the recipe details using extracted id 
 function fetchRecipeDetails (id){
     
-       fetch ('https://api.spoonacular.com/recipes/'+id+'/analyzedInstructions?'+FOOD_API_KEY)
+       fetch ('https://api.spoonacular.com/recipes/'+id+'/analyzedInstructions?'+FOOD_API_SECOND_KEY)
        .then(function (res) {
            if (!res.ok) throw new Error('oops got an error');
            return res.json();
@@ -127,7 +133,7 @@ function renderRecipeDetails (detailData) {
             }
     }
 function fetchIngredientList(id){
-    fetch ('https://api.spoonacular.com/recipes/'+id+'/information?'+FOOD_API_KEY)
+    fetch ('https://api.spoonacular.com/recipes/'+id+'/information?'+FOOD_API_SECOND_KEY)
        .then(function (res) {
            if (!res.ok) throw new Error('oops got an error');
            return res.json();
@@ -154,6 +160,6 @@ function renderIngredientList (ingredientData) {
       } 
 
 searchButton.addEventListener('click', function() {
-    testing = searchBox.value;
+    var testing = searchBox.value;
     fetchFoodResults(); //initates food functions
 })
