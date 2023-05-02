@@ -11,6 +11,7 @@ var FOOD_API_URL =
 var FOOD_API_KEY = "&number=3&apiKey=57408b6aca4f4f4cad3cd0640c27fc9a";
 var FOOD_API_SECOND_KEY = "&number=3&apiKey=0675a603136544f2bf5e7b291bfbca03";
 var FOOD_API_THIRD_KEY = "&number=3&apiKey=43725fe05e144d5fa73ea28e7883f8d4";
+var FOOD_API_FOURTH_KEY = "&number=3&apiKey=15ec0ec5c8574474b8ec01afd21ee36e";
 
 drinkButton.addEventListener("click", function () {
   fetchDrinkResults();
