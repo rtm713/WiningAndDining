@@ -1,7 +1,7 @@
 var searchBox = document.querySelector('#searchBox');
 var searchButton = document.querySelector('#searchButton');
 var drinkResults = document.querySelector('#drinkResultContainer');
-var drinkButton =document.querySelector('#drinkButton');
+var drinkButton = document.querySelector('#drinkButton');
 var iD = ""
 var COCKTAIL_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
@@ -11,38 +11,42 @@ var FOOD_API_SECOND_KEY = '&number=3&apiKey=0675a603136544f2bf5e7b291bfbca03';
 var testing = searchBox.value;
 
 
-drinkButton.addEventListener('click', function() {
+drinkButton.addEventListener('click', function () {
     fetchDrinkResults();
 })
 
 
 function fetchDrinkResults() {
-    fetch (COCKTAIL_API_URL)
-    .then(function (res) {
-        if (!res.ok) throw new Error('oops got an error');
-        return res.json();
-    })
-    .then(function (data) {
-        console.log('Data :>>', data);
-        renderDrinkResults(data.drinks[0]);
-    })
-    .catch(function (error) {
-        console.error(error);
-    });
+    fetch(COCKTAIL_API_URL)
+        .then(function (res) {
+            if (!res.ok) throw new Error('oops got an error');
+            return res.json();
+        })
+        .then(function (data) {
+            console.log('Data :>>', data);
+            renderDrinkResults(data.drinks[0]);
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
 }
 
 
 
 
 function renderDrinkResults(DrinkData) {
+
     drinkResults.textContent="";
     var drinkName = DrinkData.strDrink;    
+
     var drinkImg = DrinkData.strDrinkThumb;
     var drinkInstructions = DrinkData.strInstructions;
 
 
     var newIMG = document.createElement('img');
+]
     newIMG.setAttribute('src',drinkImg);
+
 
     var newDrinkName = document.createElement('h4');
     newDrinkName.textContent = drinkName;
@@ -60,6 +64,7 @@ function renderDrinkResults(DrinkData) {
             var newDrinkIngredient = document.createElement('li');
             newDrinkIngredient.textContent = DrinkData[measurePropertyName] + " " + ingredient;
             newDrinkIngredientList.append(newDrinkIngredient); 
+
         }
     }
 
@@ -89,6 +94,21 @@ function fetchFoodResults() {
     .catch(function (error) {
         console.error(error);
     });
+    fetch(FOOD_API_URL + testing + FOOD_API_SECOND_KEY)
+        .then(function (res) {
+            if (!res.ok) throw new Error('oops got an error');
+            return res.json();
+        })
+        .then(function (data) {
+            for (i = 0; i < 3; i++) {
+                console.log('SearchData :>>', data);
+                renderFoodResults(data[i])
+            }
+
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
 }
 //seperation of renderFoodResults, extraction of recipe id, name and image
 function renderFoodResults (foodData) {
@@ -96,6 +116,15 @@ function renderFoodResults (foodData) {
     var iD = foodData.id;
     var recipeName = foodData.title
     var recipeImage = foodData.image
+function renderFoodResults(foodData) {
+    var iD = foodData.id;
+    var recipeName = foodData.title
+    var recipeImage = foodData.image
+    console.log(iD);
+    console.log(recipeName);
+    console.log(recipeImage);
+    for (i = 0; i < 3; i++) {
+        fetchRecipeDetails(iD);//initiates connection from search to recipe itself}
 
      fetchRecipeDetails(iD);//initiates connection from search to recipe itself
      fetchIngredientList(iD);
@@ -115,11 +144,15 @@ function fetchRecipeDetails (id){
         //    console.log("DetailData :>>", data);
            renderRecipeDetails(data);
 
-       })
-       .catch(function (error) {
-        console.error(error);
-    });
-}
+        fetch('https://api.spoonacular.com/recipes/' + id + '/analyzedInstructions?' + FOOD_API_SECOND_KEY)
+            .then(function (res) {
+                if (!res.ok) throw new Error('oops got an error');
+                return res.json();
+            })
+            .then(function (data) {
+                console.log(id);
+                console.log("DetailData :>>", data);
+                renderRecipeDetails(data[0]);
 
 
 function renderRecipeDetails (detailData) {
