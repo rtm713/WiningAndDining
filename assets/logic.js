@@ -3,7 +3,7 @@ var searchButton = document.querySelector("#searchButton");
 var drinkResults = document.querySelector("#drinkResultContainer");
 var drinkButton = document.querySelector("#drinkButton");
 var iD = "";
-var recipeTitle = document.querySelector("#mealName");
+
 var COCKTAIL_API_URL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
 var FOOD_API_URL =
@@ -75,7 +75,7 @@ function renderDrinkResults(DrinkData) {
 //on click - fetches the data for search by ingredient and recipe information bases
 function fetchFoodResults() {
   testing = searchBox.value;
-  fetch(FOOD_API_URL + testing + FOOD_API_SECOND_KEY)
+  fetch(FOOD_API_URL + testing + FOOD_API_FOURTH_KEY)
     .then(function (res) {
       if (!res.ok) throw new Error("oops got an error");
       return res.json();
@@ -83,7 +83,9 @@ function fetchFoodResults() {
     .then(function (data) {
       for (var i = 0; i < 3; i++) {
         // console.log('SearchData :>>', data);
-        renderFoodResults(data[i]);
+        var recipeTitle = document.getElementById("mealName-" + (i + 1));
+        var recipePicture = document.getElementById("recipeImage-" + (i + 1));
+        renderFoodResults(data[i], recipeTitle, recipePicture);
       }
     })
     .catch(function (error) {
@@ -91,10 +93,14 @@ function fetchFoodResults() {
     });
 }
 //seperation of renderFoodResults, extraction of recipe id, name and image
-function renderFoodResults(foodData) {
+function renderFoodResults(foodData, titleElement, imageElement) {
   var iD = foodData.id;
   var recipeName = foodData.title;
   var recipeImage = foodData.image;
+
+  titleElement.textContent = recipeName;
+  imageElement.setAttribute("src", recipeImage);
+
   fetchRecipeDetails(iD); //initiates connection from search to recipe itself
   fetchIngredientList(iD);
 }
@@ -105,7 +111,7 @@ function fetchRecipeDetails(id) {
     "https://api.spoonacular.com/recipes/" +
       id +
       "/analyzedInstructions?" +
-      FOOD_API_SECOND_KEY
+      FOOD_API_FOURTH_KEY
   )
     .then(function (res) {
       if (!res.ok) throw new Error("oops got an error");
@@ -130,7 +136,7 @@ function fetchIngredientList(id) {
     "https://api.spoonacular.com/recipes/" +
       id +
       "/information?" +
-      FOOD_API_SECOND_KEY
+      FOOD_API_FOURTH_KEY
   )
     .then(function (res) {
       if (!res.ok) throw new Error("oops got an error");
