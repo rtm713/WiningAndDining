@@ -14,7 +14,7 @@
 <body>
     <header class="header">
 
-        <img src="winedine_header.png" class="logo">
+        <img class="logo" src="winedine_header.png" alt="Wine and Dine">
 
         <nav class="navbar">
             <a href="#home" class="active"><i class='bx bxs-home'></i> Home</a>
@@ -27,22 +27,21 @@
 
     <div class="hero-container">
         <img class="hero-image" src="cheers.jpg" alt="a circle of people cheering with cocktails" style="width:100%;">
-        <div class="centered">Centered</div>
-        <div class="text-block">
+
+        <div class="text-block" id="home">
+
+          <h4>Welcome to Wine and Dine!</h4>
+          <p>Got a new date coming over and want to impress them with a fully cooked meal? Perhaps you are bored of the same old thing and want to try something new. Whatever the occasion might be, we got you covered! </p>
+          <p>Enter an ingredient below and we'll pull up three random meals you can try. Don't forget to add a drink!</p>
+
+          <div id="inputContainer">
+            <input id="searchBox" type="text">
+            <button id="searchButton">Search...</button>
+
 
         </div>
-
-        <section class="home" id="home">
-            <div class="home-content">
-                <h2>Hello welcome to </h2>
-                <h1> Wining and Dining!!</h1>
-            </div>
-        </section>
-
-     <div id="inputContainer">
-        <input id="searchBox" type="text">
-        <button id="searchButton">Search...</button>
-    </div>
+        </div>
+        </div>
 
     <div id="foodResultContainer">
 
@@ -82,22 +81,26 @@
           <h4><b id="mealName">Meal 3</b></h4> 
           <p>Ingredients & Recipe</p> 
         </div>
-    </div>
+      </div>
 
-    <button id="drinkButton">Random Drink</button>
-
-    <div id="drinkResultContainer">
-
-
-    </div>
   </div>
-  <div class="drink-container">
+
+  <!-- Random Drink Section -->
+
+  <button id="drinkButton">Random Drink</button>
+
+  <div id="drinkResultContainer">
+  </div>
+
+  <!-- <div class="drink-container">
     <img src="" alt="drink" style="width:100%">
     <div class="recipe">
       <h4><b id="mealName">Need a Drink?</b></h4> 
       <p>Ingredients & Recipe</p> 
     </div>
-</div>
+</div> -->
+
+
       <!--Contact design-->
       <section class="contact" id="contact">
         <h1>Contact Us!</h1>
