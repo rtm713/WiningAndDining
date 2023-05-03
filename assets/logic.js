@@ -47,6 +47,7 @@ function renderDrinkResults(DrinkData) {
   newDrinkName.textContent = drinkName;
 
   var newDrinkIngredientList = document.createElement("ul");
+  var drinkIngredientArray = [];
 
   for (var i = 1; i <= 15; i++) {
     var ingredientPropertyName = "strIngredient";
@@ -60,6 +61,7 @@ function renderDrinkResults(DrinkData) {
       newDrinkIngredient.textContent =
         DrinkData[measurePropertyName] + " " + ingredient;
       newDrinkIngredientList.append(newDrinkIngredient);
+      drinkIngredientArray.push(newDrinkIngredient.textContent);
     }
   }
 
@@ -70,7 +72,35 @@ function renderDrinkResults(DrinkData) {
   drinkResults.append(newDrinkName);
   drinkResults.append(newDrinkIngredientList);
   drinkResults.append(newDrinkInstructions);
+
+  var saveButton = document.createElement('button');
+  saveButton.setAttribute('type','submit');
+  saveButton.textContent = "Save Drink";
+  drinkResults.append(saveButton);
+
+  saveButton.addEventListener('click', function() {
+      var saveDrink = {
+          saveIMG: drinkImg,
+          saveName: drinkName,
+          saveIngredients: drinkIngredientArray,
+          saveInstructions: drinkInstructions,
+      };
+
+      var checkDrink = localStorage.getItem('checkDrink');
+      if (checkDrink === null) {
+          checkDrink = [];
+      } else {
+          checkDrink = JSON.parse(checkDrink)
+      }
+      checkDrink.push(saveDrink);
+      var thisDrink = JSON.stringify(checkDrink);
+      localStorage.setItem("checkDrink", thisDrink);
+
+      // window.location.replace("./savedItems.html");
+  });
 }
+
+
 
 //on click - fetches the data for search by ingredient and recipe information bases
 function fetchFoodResults() {
