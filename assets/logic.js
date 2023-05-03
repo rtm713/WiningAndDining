@@ -15,6 +15,7 @@ var FOOD_API_FOURTH_KEY = "&number=3&apiKey=15ec0ec5c8574474b8ec01afd21ee36e";
 var FOOD_API_SIXTH_KEY = "&number=3&apiKey=6559d12cdaa74ffba5026959f1cb3542";
 var FOOD_API_SEVENTH_KEY = "&number=3&apiKey=beceeee4af7d4af581657cc0ea5b315c";
 var FOOD_API_EIGHTH_KEY = "&number=3&apiKey=cea889c4c853419798c1319b12958949";
+var FOOD_API_NINTH_KEY = "&number=3&apiKey=27994704f2c744118ed1e4d5c71bf4de";
 
 drinkButton.addEventListener("click", function () {
   fetchDrinkResults();
@@ -76,34 +77,32 @@ function renderDrinkResults(DrinkData) {
   drinkResults.append(newDrinkIngredientList);
   drinkResults.append(newDrinkInstructions);
 
-  var saveButton = document.createElement('button');
-  saveButton.setAttribute('type','submit');
+  var saveButton = document.createElement("button");
+  saveButton.setAttribute("type", "submit");
   saveButton.textContent = "Save Drink";
   drinkResults.append(saveButton);
 
-  saveButton.addEventListener('click', function() {
-      var saveDrink = {
-          saveIMG: drinkImg,
-          saveName: drinkName,
-          saveIngredients: drinkIngredientArray,
-          saveInstructions: drinkInstructions,
-      };
+  saveButton.addEventListener("click", function () {
+    var saveDrink = {
+      saveIMG: drinkImg,
+      saveName: drinkName,
+      saveIngredients: drinkIngredientArray,
+      saveInstructions: drinkInstructions,
+    };
 
-      var checkDrink = localStorage.getItem('checkDrink');
-      if (checkDrink === null) {
-          checkDrink = [];
-      } else {
-          checkDrink = JSON.parse(checkDrink)
-      }
-      checkDrink.push(saveDrink);
-      var thisDrink = JSON.stringify(checkDrink);
-      localStorage.setItem("checkDrink", thisDrink);
+    var checkDrink = localStorage.getItem("checkDrink");
+    if (checkDrink === null) {
+      checkDrink = [];
+    } else {
+      checkDrink = JSON.parse(checkDrink);
+    }
+    checkDrink.push(saveDrink);
+    var thisDrink = JSON.stringify(checkDrink);
+    localStorage.setItem("checkDrink", thisDrink);
 
-      // window.location.replace("./savedItems.html");
+    // window.location.replace("./savedItems.html");
   });
 }
-
-
 
 //on click - fetches the data for search by ingredient and recipe information bases
 function fetchFoodResults() {
