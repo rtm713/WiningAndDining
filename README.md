@@ -48,5 +48,3 @@ THEN I am taken to their corresponding links
 coming soon
 
 
-## Credits 
-
