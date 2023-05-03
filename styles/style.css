@@ -83,9 +83,11 @@ h4 {
   margin-left: 3rem;
   transition: 2s;
 }
+
 .navbar a i {
   background-color: rgba(0, 0, 0, 0);
 }
+
 .navbar :hover,
 .navbar .active {
   color: #ECF39E;
@@ -266,4 +268,5 @@ body {
     width: 50%;
 
   }
-}
+
+  
