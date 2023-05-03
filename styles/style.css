@@ -165,6 +165,11 @@ margin: 15px;
 color: #90A955;
 
 }
+
+.contact-container a i:hover {
+  color: #ECF39E;
+}
+
  
 
 @media screen and (min-width: 240px) and (max-width: 820px) {
