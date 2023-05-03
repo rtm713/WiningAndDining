@@ -107,7 +107,7 @@ function renderDrinkResults(DrinkData) {
 //on click - fetches the data for search by ingredient and recipe information bases
 function fetchFoodResults() {
   testing = searchBox.value;
-  fetch(FOOD_API_URL + testing + FOOD_API_NINTH_KEY)
+  fetch(FOOD_API_URL + testing + FOOD_API_KEY)
     .then(function (res) {
       if (!res.ok) throw new Error("oops got an error");
       return res.json();
@@ -117,15 +117,17 @@ function fetchFoodResults() {
         // console.log('SearchData :>>', data);
         var recipeTitle = document.getElementById("mealName-" + (i + 1));
         var recipePicture = document.getElementById("recipeImage-" + (i + 1));
-        renderFoodResults(data[i], recipeTitle, recipePicture);
+        renderFoodResults(data[i], recipeTitle, recipePicture, i + 1);
       }
-    })
-    .catch(function (error) {
-      console.error(error);
     });
 }
 //seperation of renderFoodResults, extraction of recipe id, name and image
-function renderFoodResults(foodData, titleElement, imageElement) {
+function renderFoodResults(
+  foodData,
+  titleElement,
+  imageElement,
+  elementNumber
+) {
   var iD = foodData.id;
   var recipeName = foodData.title;
   var recipeImage = foodData.image;
@@ -133,25 +135,28 @@ function renderFoodResults(foodData, titleElement, imageElement) {
   titleElement.textContent = recipeName;
   imageElement.setAttribute("src", recipeImage);
 
-  fetchRecipeDetails(iD); //initiates connection from search to recipe itself
-  fetchIngredientList(iD);
+  fetchRecipeDetails(iD, elementNumber); //initiates connection from search to recipe itself
+  fetchIngredientList(iD, elementNumber);
 }
 
 //second fetch to grab the recipe details using extracted id
-function fetchRecipeDetails(id) {
+function fetchRecipeDetails(id, number) {
   fetch(
     "https://api.spoonacular.com/recipes/" +
       id +
       "/analyzedInstructions?" +
-      FOOD_API_NINTH_KEY
+      FOOD_API_KEY
   )
     .then(function (res) {
       if (!res.ok) throw new Error("oops got an error");
       return res.json();
     })
     .then(function (data) {
-      recipeSteps = document.getElementById("recipeInstructions-" + num++);
+      recipeSteps = document.getElementById("recipeInstructions-" + number);
       renderRecipeDetails(data, recipeSteps);
+    })
+    .catch(function (error) {
+      console.error(error);
     });
 }
 
@@ -163,19 +168,16 @@ function renderRecipeDetails(detailData, stepsElement) {
     stepsElement.append(instructions);
   }
 }
-function fetchIngredientList(id) {
+function fetchIngredientList(id, number) {
   fetch(
-    "https://api.spoonacular.com/recipes/" +
-      id +
-      "/information?" +
-      FOOD_API_NINTH_KEY
+    "https://api.spoonacular.com/recipes/" + id + "/information?" + FOOD_API_KEY
   )
     .then(function (res) {
       if (!res.ok) throw new Error("oops got an error");
       return res.json();
     })
     .then(function (data) {
-      ingredientList = document.getElementById("ingredientList-" + num++);
+      ingredientList = document.getElementById("ingredientList-" + number);
       renderIngredientList(data, ingredientList);
     })
     .catch(function (error) {
