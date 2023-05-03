@@ -225,16 +225,25 @@ body {
     width: 350px;
   } 
 
+  .card {
+    width: 100%;
+  }
+
+
   .foodResultsContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
 #drinkButton {
   display: flex;
   align-items: center;
 }
+
+
+
 
   #drinkResultContainer img{
     display: flex;
