@@ -1,4 +1,5 @@
 var itemContainer = document.querySelector('#itemContainer');
+var clearButton = document.querySelector('#clear');
 
 var checkDrink = JSON.parse(localStorage.getItem("checkDrink"));
 
@@ -30,3 +31,7 @@ if (checkDrink != null) {
     }
 };
 
+clearButton.addEventListener('click', function() {
+    localStorage.clear();
+    location.reload();
+});
