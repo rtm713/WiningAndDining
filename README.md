@@ -2,6 +2,7 @@
 
 ## Description 
 
+
 Our group was challenged to create a website using two server-side APIs, so we decided to come together and create a site that brings you some yummy meals! Drinks included 😉 
 
 
@@ -45,3 +46,7 @@ THEN I am taken to their corresponding links
 
 ## Credits 
 coming soon
+
+
+## Credits 
+

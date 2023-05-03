@@ -160,7 +160,7 @@ function renderRecipeDetails(detailData, stepsElement) {
     var steps = detailData[0].steps[j].step;
     var instructions = document.createElement("li");
     instructions.textContent = steps;
-    stepsElement.appendChild(instructions);
+    stepsElement.append(instructions);
   }
 }
 function fetchIngredientList(id) {
@@ -168,7 +168,7 @@ function fetchIngredientList(id) {
     "https://api.spoonacular.com/recipes/" +
       id +
       "/information?" +
-      FOOD_API_EIGHTH_KEY
+      FOOD_API_NINTH_KEY
   )
     .then(function (res) {
       if (!res.ok) throw new Error("oops got an error");
@@ -184,13 +184,13 @@ function fetchIngredientList(id) {
 }
 
 function renderIngredientList(ingredientData, ingredientElement) {
-  // console.log(ingredientData);
-  // for (var i = 0; i < ingredientData.extendedIngredients[i].length; i++) {
-  //   var allIngredients = ingredientData.extendedIngredients[i].original;
-  //   var shoppingList = document.createElement("li");
-  //   shoppingList.textContent = allIngredients;
-  //   ingredientElement.append(shoppingList);
-  //}
+  console.log(ingredientData);
+  for (var i = 0; i < ingredientData.extendedIngredients.length; i++) {
+    var allIngredients = ingredientData.extendedIngredients[i].original;
+    var shoppingList = document.createElement("li");
+    shoppingList.textContent = allIngredients;
+    ingredientElement.append(shoppingList);
+  }
 }
 
 searchButton.addEventListener("click", function () {
