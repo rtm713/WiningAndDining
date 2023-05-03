@@ -168,6 +168,7 @@ color: #90A955;
 
 .contact-container a i:hover {
   color: #ECF39E;
+  transition: .5s;
 }
 
  
