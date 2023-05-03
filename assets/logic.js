@@ -107,7 +107,7 @@ function renderDrinkResults(DrinkData) {
 //on click - fetches the data for search by ingredient and recipe information bases
 function fetchFoodResults() {
   testing = searchBox.value;
-  fetch(FOOD_API_URL + testing + FOOD_API_EIGHTH_KEY)
+  fetch(FOOD_API_URL + testing + FOOD_API_NINTH_KEY)
     .then(function (res) {
       if (!res.ok) throw new Error("oops got an error");
       return res.json();
@@ -143,7 +143,7 @@ function fetchRecipeDetails(id) {
     "https://api.spoonacular.com/recipes/" +
       id +
       "/analyzedInstructions?" +
-      FOOD_API_EIGHTH_KEY
+      FOOD_API_NINTH_KEY
   )
     .then(function (res) {
       if (!res.ok) throw new Error("oops got an error");
@@ -160,7 +160,7 @@ function renderRecipeDetails(detailData, stepsElement) {
     var steps = detailData[0].steps[j].step;
     var instructions = document.createElement("li");
     instructions.textContent = steps;
-    stepsElement.appendChild(instructions);
+    stepsElement.append(instructions);
   }
 }
 function fetchIngredientList(id) {
@@ -168,7 +168,7 @@ function fetchIngredientList(id) {
     "https://api.spoonacular.com/recipes/" +
       id +
       "/information?" +
-      FOOD_API_EIGHTH_KEY
+      FOOD_API_NINTH_KEY
   )
     .then(function (res) {
       if (!res.ok) throw new Error("oops got an error");
@@ -184,13 +184,13 @@ function fetchIngredientList(id) {
 }
 
 function renderIngredientList(ingredientData, ingredientElement) {
-  // console.log(ingredientData);
-  // for (var i = 0; i < ingredientData.extendedIngredients[i].length; i++) {
-  //   var allIngredients = ingredientData.extendedIngredients[i].original;
-  //   var shoppingList = document.createElement("li");
-  //   shoppingList.textContent = allIngredients;
-  //   ingredientElement.append(shoppingList);
-  //}
+  console.log(ingredientData);
+  for (var i = 0; i < ingredientData.extendedIngredients.length; i++) {
+    var allIngredients = ingredientData.extendedIngredients[i].original;
+    var shoppingList = document.createElement("li");
+    shoppingList.textContent = allIngredients;
+    ingredientElement.append(shoppingList);
+  }
 }
 
 searchButton.addEventListener("click", function () {
