@@ -156,15 +156,12 @@ h4 {
 
 .contact-container {
   display: flex;
-  align-items: center;
+  justify-content: center;
 
 }
 
 .contact-box {
   display: flex;
-  margin-left: 70px;
-
-
 }
 
 .contact-container h3 {
