@@ -93,7 +93,7 @@ h4 {
 
 .foodResultsContainer{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .card {
