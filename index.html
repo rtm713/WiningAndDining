@@ -2,88 +2,87 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="styles/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="styles/style.css">
 
-    <title>Wining and Dining</title>
+  <title>Wining and Dining</title>
 </head>
 
 <body>
-    <header class="header">
+  <header class="header">
 
-        <img class="logo" src="winedine_header.png" alt="Wine and Dine">
+    <img class="logo" src="winedine_header.png" alt="Wine and Dine">
 
-        <nav class="navbar">
-            <a href="#home" class="active"><i class='bx bxs-home'></i> Home</a>
-            <a href="#food"><i class='bx bxs-bowl-hot'></i> Food</a>
-            <a href="#drinks"><i class='bx bxs-drink'></i> Drinks</a>
-            <a href="#contact"><i class='bx bxs-book-reader'></i> Contact</a>
-        </nav>
+    <nav class="navbar">
+      <a href="#home" class="active"><i class='bx bxs-home'></i> Home</a>
+      <a href="#food"><i class='bx bxs-bowl-hot'></i> Food</a>
+      <a href="#drinks"><i class='bx bxs-drink'></i> Drinks</a>
+      <a href="#contact"><i class='bx bxs-book-reader'></i> Contact</a>
+    </nav>
 
-    </header>
+  </header>
 
-    <div class="hero-container">
-        <img class="hero-image" src="cheers.jpg" alt="a circle of people cheering with cocktails" style="width:100%;">
-        
-        <div class="text-block" id="home">
+  <div class="hero-container">
+    <img class="hero-image" src="cheers.jpg" alt="a circle of people cheering with cocktails" style="width:100%;">
 
-          <h4>Welcome to Wine and Dine!</h4>
-          <p>Got a new date coming over and want to impress them with a fully cooked meal? Perhaps you are bored of the same old thing and want to try something new. Whatever the occasion might be, we got you covered! </p>
-          <p>Enter an ingredient below and we'll pull up three random meals you can try. Don't forget to add a drink!</p>
+    <div class="text-block" id="home">
 
-          <div id="inputContainer">
-            <input id="searchBox" type="text">
-            <button id="searchButton">Search...</button>
+      <h4>Welcome to Wine and Dine!</h4>
+      <p>Got a new date coming over and want to impress them with a fully cooked meal? Perhaps you are bored of the same
+        old thing and want to try something new. Whatever the occasion might be, we got you covered! </p>
+      <p>Enter an ingredient below and we'll pull up three random meals you can try. Don't forget to add a drink!</p>
+
+      <div id="inputContainer">
+        <input id="searchBox" type="text">
+        <button id="searchButton">Search...</button>
 
 
-        </div>
-        </div>
-        </div>
-
-    <div id="foodResultContainer">
-
+      </div>
     </div>
+  </div>
 
-
-        <!-- foodResultsContainer -->
-
-    <div class="foodResultsContainer">
-    <div class="card">
-        <img id = "recipeImage-1" src="" alt="Food Image" style="width:100%">
-        <div class="recipe">
-          <h4><b id="mealName-1"></b></h4> 
-          <p id = "ingredientList-1"></p> 
-          <ol id = "recipeInstructions-1"></ol> 
-        </div>
-      </div>
-
-
-      <div class="card">
-        <img id = "recipeImage-2" src="" alt="Food Image" style="width:100%">
-        <div class="recipe">
-          <h4><b id="mealName-2"></b></h4> 
-         <p id ="ingredientList-2"></p> 
-                  <ol id = "recipeInstructions-2"></ol> 
-        </div>
-        </div>
-
-
-      </div>
-      <div class="card">
-        <img id= "recipeImage-3" src="" alt="Avatar" style="width:100%">
-        <div class="recipe">
-          <h4><b id="mealName-3">Meal 3</b></h4> 
-          <p id ="ingredientList-3">Ingredients</p> 
-          <ol id = "recipeInstructions-3"></ol> 
-        </div>
-      </div>
+  <div id="foodResultContainer">
 
   </div>
 
-  
+
+  <!-- foodResultsContainer -->
+
+  <div class="foodResultsContainer">
+    <div class="card">
+      <img id="recipeImage-1" src="" alt="Food Image" style="width:100%">
+      <div class="recipe">
+        <h4><b id="mealName-1"></b></h4>
+        <p id="ingredientList-1"></p>
+        <ol id="recipeInstructions-1"></ol>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <img id="recipeImage-2" src="" alt="Food Image" style="width:100%">
+      <div class="recipe">
+        <h4><b id="mealName-2"></b></h4>
+        <p id="ingredientList-2"></p>
+        <ol id="recipeInstructions-2"></ol>
+      </div>
+    </div>
+    <div class="card">
+      <img id="recipeImage-3" src="" alt="Food Image" style="width:100%">
+      <div class="recipe">
+        <h4><b id="mealName-3"></b></h4>
+        <p id="ingredientList-3"></p>
+        <ol id="recipeInstructions-3"></ol>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
 
   </div>
 
@@ -95,39 +94,40 @@
   </div>
 
 
-      <!--Contact design-->
-      <section class="contact" id="contact">
-        <h1>Contact Us!</h1>
+  <!--Contact design-->
+  <section class="contact" id="contact">
+    <h1>Contact Us!</h1>
 
-        <div class="contact-container">
-          <div class="contact-box">
-            <h3>Hailey Hughes</h3>
-            <a href="https://www.linkedin.com/in/hailey-hughes-039382206"><i class='bx bxl-linkedin-square'></i></a>
-            <a href="https://github.com/haileyraehughes89"><i class='bx bxl-github'></i></a>
-
-            <div class="contact-box">
-                <h3>Ivy McCurdy</h3>
-                <a href="https://www.linkedin.com/in/ivy-mccurdy"><i class='bx bxl-linkedin-square'></i></a>
-                <a href="https://github.com/IvySMac"><i class='bx bxl-github'></i></a>
-
-                
-
-        
-          <div class="contact-box">
-            <h3>Travis Meyer</h3>
-            <a href="https://www.linkedin.com/in/travis-meyer-940b59274"><i class='bx bxl-linkedin-square'></i></a>
-            <a href="https://github.com/rtm713"><i class='bx bxl-github'></i></a>
-
-            
-              <div class="contact-box">
-                <h3>Zac Wheeler</h3>
-                <a href="https://www.linkedin.com/in/zac-wheeler-76335b180"><i class='bx bxl-linkedin-square'></i></a>
-                <a href="https://github.com/ZacWheeler3"><i class='bx bxl-github'></i></a>
-          </div>
+    <div class="contact-container">
+      <div class="contact-box">
+        <div class="social-icons">
+        <h3>Hailey Hughes</h3>
+        <a href="https://www.linkedin.com/in/hailey-hughes-039382206"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="https://github.com/haileyraehughes89"><i class='bx bxl-github'></i></a>
         </div>
-      </section>
 
-            <script src="./assets/logic.js"></script>
+        <div class="social-icons">
+        <h3>Ivy McCurdy</h3>
+        <a href="https://www.linkedin.com/in/ivy-mccurdy"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="https://github.com/IvySMac"><i class='bx bxl-github'></i></a>
+      </div>
+
+      <div class="social-icons">
+        <h3>Travis Meyer</h3>
+        <a href="https://www.linkedin.com/in/travis-meyer-940b59274"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="https://github.com/rtm713"><i class='bx bxl-github'></i></a>
+        </div>
+
+        <div class="social-icons">
+        <h3>Zac Wheeler</h3>
+        <a href="https://www.linkedin.com/in/zac-wheeler-76335b180"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="https://github.com/ZacWheeler3"><i class='bx bxl-github'></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="./assets/logic.js"></script>
 
 </body>
 
