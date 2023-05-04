@@ -108,7 +108,7 @@ function renderDrinkResults(DrinkData) {
 function fetchFoodResults() {
   testing = searchBox.value;
 
-  fetch(FOOD_API_URL + testing + FOOD_API_NINTH_KEY)
+  fetch(FOOD_API_URL + testing + FOOD_API_SECOND_KEY)
     .then(function (res) {
       if (!res.ok) throw new Error("oops got an error");
       return res.json();
@@ -147,7 +147,7 @@ function fetchRecipeDetails(id, number) {
       id +
       "/analyzedInstructions?" +
 
-      FOOD_API_NINTH_KEY
+      FOOD_API_SECOND_KEY
 
   )
     .then(function (res) {
@@ -177,7 +177,7 @@ function fetchIngredientList(id, number) {
     "https://api.spoonacular.com/recipes/" +
       id +
       "/information?" +
-      FOOD_API_NINTH_KEY
+      FOOD_API_SECOND_KEY
 
   )
     .then(function (res) {
