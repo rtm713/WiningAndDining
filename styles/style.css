@@ -179,6 +179,13 @@ h4 {
 }
 
 
+.contact-container a i:hover {
+  color: #ECF39E;
+  transition: .5s;
+}
+
+ 
+
 @media screen and (min-width: 240px) and (max-width: 820px) {
 
   html {
@@ -324,3 +331,4 @@ h4 {
 
 
 }
+
